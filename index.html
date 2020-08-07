@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Securiti IAB EU GDPR Demo</title>
+    <link rel='stylesheet' type='text/css' href='https://cdn-dev.securiti.xyz/consent/cookie-consent.css' />
+    <style>
+        button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: none;
+            padding: 1%;
+            border-radius: 10px;
+            animation: cssAnimation 0s 3s forwards;
+            visibility: hidden;
+        }
+
+        .btn {
+            background: #222;
+            color: yellow;
+            font-size: 2rem;
+        }
+
+        .btn:hover {
+            background: yellow;
+            color: #222;
+            border: solid 4px #222;
+        }
+
+        .btn:active {
+            background: white;
+            color: #222;
+        }
+
+        @keyframes cssAnimation {
+            to {
+                visibility: visible;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script type="text/javascript" src="https://cdn-dev.securiti.xyz/consent/sdk-stub.js"></script>
+    <script>
+        (function () {
+            var s = document.createElement('script');
+            s.src = 'https://cdn-dev.securiti.xyz/consent/cookie-consent-sdk.js';
+            s.setAttribute('data-tenant-uuid', '036fd5c2-32bd-4a47-b60c-d9d016fdd52d');
+            s.setAttribute('data-domain-uuid', '722e4bb6-05b2-4733-9462-e9278fd37627');
+            s.setAttribute('data-backend-url', 'https://dev.securiti.xyz');
+            var parent_node = document.head || document.body;
+            parent_node.appendChild(s);
+            s.addEventListener('load', function () {
+                window.initCmp();
+            });
+        })()
+    </script>
+
+    <button class="btn" onclick="showConsentPreferencesPopup()">Revoke Consent</button>
+</body>
+
+</html>
